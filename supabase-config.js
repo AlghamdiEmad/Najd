@@ -1,10 +1,9 @@
-// استيراد العميل من مكتبة Supabase التي سنستدعيها في الـ HTML
+// استيراد العميل من مكتبة Supabase
 const { createClient } = window.supabase;
 
-// استبدل الروابط أدناه ببيانات مشروعك من (Settings > API)
-const supabaseUrl = 'https://your-project-id.supabase.co';
-const supabaseKey = 'your-anon-key';
+// البيانات التي استخرجناها من مشروعك
+const supabaseUrl = 'https://qgbuvchbhbtkwcvafhek.supabase.co'; 
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnYnV2Y2hiaGJ0a3djdmFmaGVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2MTI0ODksImV4cCI6MjA5MjE4ODQ4OX0.rBc4KTn0c8OhhG2dFD9ZLDHknBhhOllYsxBMzuvWeCY';
 
-// إنشاء اتصال وتصديره ليكون جاهزاً للاستخدام في الملفات الأخرى
+// إنشاء الاتصال وتصديره
 export const supabase = createClient(supabaseUrl, supabaseKey);
-
