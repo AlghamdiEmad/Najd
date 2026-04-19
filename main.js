@@ -1,56 +1,55 @@
-import { supabase } from './supabase-config.js';
+// 1. إعداد الاتصال بـ Supabase
+const supabaseUrl = 'رابط_مشروعك_هنا';
+const supabaseKey = 'مفتاح_API_الخاص_بك';
+const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
 const postsContainer = document.getElementById('posts-container');
 
-// 1. دالة لجلب المنشورات من قاعدة البيانات
+// 2. وظيفة جلب المنشورات وعرضها
 async function fetchPosts() {
-    const { data, error } = await supabase
+    // جلب البيانات من جدول posts وترتيبها من الأحدث للأقدم
+    const { data: posts, error } = await _supabase
         .from('posts')
         .select('*')
         .order('created_at', { ascending: false });
 
     if (error) {
-        console.error('حدث خطأ أثناء جلب البيانات:', error);
-    } else {
-        renderPosts(data);
+        console.error('خطأ في جلب البيانات:', error);
+        return;
     }
-}
 
-// 2. دالة لرسم المنشورات في الصفحة بتنسيق فخم
-function renderPosts(posts) {
-    if (!postsContainer) return;
-    
-    postsContainer.innerHTML = ''; // تفريغ الحاوية قبل الرسم
+    // تنظيف الحاوية قبل العرض
+    postsContainer.innerHTML = '';
 
+    // 3. بناء شكل كل منشور
     posts.forEach(post => {
         const postElement = document.createElement('div');
         postElement.className = 'post-card';
+        
+        // هنا نستخدم الاسم واللون المخزنين في قاعدة البيانات لكل مستخدم
         postElement.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
-                <div style="width: 45px; height: 45px; background: ${post.user_color || '#d4af37'}; border-radius: 50%; border: 2px solid rgba(255,255,255,0.1);"></div>
-                <div style="display: flex; flex-direction: column;">
-                    <span style="font-weight: 800; font-size: 1rem;">${post.user_name || 'مستخدم مجهول'}</span>
-                    <small style="color: var(--text-muted); font-size: 0.7rem;">
-                        ${new Date(post.created_at).toLocaleString('ar-SA', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })}
-                    </small>
-                </div>
+            <div class="post-header">
+                <span class="user-name" style="color: ${post.user_color || '#ffffff'}">
+                    ${post.user_name || 'مستخدم مجهول'}
+                </span>
+                <span class="post-date">${new Date(post.created_at).toLocaleDateString('ar-SA')}</span>
             </div>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #efefef;">${post.content}</p>
+            <div class="post-content">
+                ${post.content}
+            </div>
         `;
         postsContainer.appendChild(postElement);
     });
 }
 
-// 3. الاشتراك في التحديثات اللحظية (Realtime)
-// لكي يظهر المنشور الجديد عند الجميع فوراً بدون تحديث الصفحة
-supabase
+// 4. تشغيل خاصية الـ Realtime (التحديث اللحظي)
+const channel = _supabase
     .channel('public:posts')
     .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'posts' }, (payload) => {
-        console.log('تمت إضافة منشور جديد!', payload);
-        fetchPosts(); // إعادة جلب القائمة لتشمل المنشور الجديد
+        // إذا جاء منشور جديد، أعد تحميل القائمة
+        fetchPosts();
     })
     .subscribe();
 
-// تشغيل الجلب لأول مرة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', fetchPosts);
-
+// تشغيل الدالة عند فتح الصفحة لأول مرة
+fetchPosts();
