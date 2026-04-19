@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نـجـد | Najd</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <title>نـجـد</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
-        <div class="logo">نـجـد</div>
+        <div class="header-container">
+            <a href="settings.html" class="settings-icon">⚙️</a>
+            <div class="logo">نـجـد</div>
+            <div style="width: 30px;"></div> </div>
     </header>
 
-    <main id="posts-container" style="margin-top: 100px; padding: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+    <main id="posts-container">
         </main>
 
-    <a href="post.html" class="fab">+</a>
+    <div class="fab" onclick="window.location.href='post.html'">+</div>
 
-    <script type="module" src="main.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
