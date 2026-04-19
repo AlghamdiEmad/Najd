@@ -1,38 +1,48 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إعدادات الهوية | نـجـد</title>
+    <title>الإعدادات - نـجـد</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
-        <div class="logo">نـجـد</div>
+        <div class="header-container">
+            <a href="index.html" style="text-decoration: none; color: white;">✕</a>
+            <div class="logo">هويتك</div>
+            <div style="width: 20px;"></div>
+        </div>
     </header>
 
-    <div style="margin-top: 100px; padding: 20px; max-width: 500px; margin-left: auto; margin-right: auto;">
-        <div class="post-card">
-            <h2 style="margin-bottom: 20px; font-size: 1.2rem;">إعدادات الهوية</h2>
-            
-            <label style="display: block; margin-bottom: 10px; color: var(--text-muted);">اسمك المستعار:</label>
-            <input type="text" id="user-name-input" placeholder="مثلاً: صقر نجد" 
-                style="width: 100%; background: #0a0a0a; border: var(--border-smooth); border-radius: 12px; color: white; padding: 12px; font-family: var(--font-najd); margin-bottom: 20px; outline: none;">
-            
-            <label style="display: block; margin-bottom: 10px; color: var(--text-muted);">لون هويتك:</label>
-            <input type="color" id="user-color-input" value="#d4af37" 
-                style="width: 100%; height: 50px; background: none; border: none; cursor: pointer; margin-bottom: 25px;">
-            
-            <button id="save-settings-btn" style="width: 100%; background: var(--accent); color: var(--bg-main); border: none; padding: 12px; border-radius: 30px; font-weight: bold; cursor: pointer; font-family: var(--font-najd);">حفظ التغييرات</button>
-        </div>
+    <main class="settings-form">
+        <label>الاسم المستعار</label>
+        <input type="text" id="user-name-input" placeholder="اكتب اسمك هنا...">
 
-        <center>
-            <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-top: 20px; display: inline-block;">← العودة للرئيسية</a>
-        </center>
-    </div>
+        <label>لون هويتك</label>
+        <input type="color" id="user-color-input" value="#007bff">
 
-    <script src="settings.js"></script>
+        <button id="save-settings-btn" class="post-btn">حفظ التغييرات</button>
+    </main>
+
+    <script>
+        // تحميل الإعدادات الحالية إذا وجدت
+        document.getElementById('user-name-input').value = localStorage.getItem('najd_name') || '';
+        document.getElementById('user-color-input').value = localStorage.getItem('najd_color') || '#007bff';
+
+        document.getElementById('save-settings-btn').addEventListener('click', () => {
+            const name = document.getElementById('user-name-input').value.trim();
+            const color = document.getElementById('user-color-input').value;
+
+            if(name) {
+                localStorage.setItem('najd_name', name);
+                localStorage.setItem('najd_color', color);
+                alert('تم الحفظ بنجاح!');
+                window.location.href = 'index.html';
+            } else {
+                alert('الرجاء كتابة اسم');
+            }
+        });
+    </script>
 </body>
 </html>
-
