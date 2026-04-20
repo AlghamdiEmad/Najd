@@ -2,51 +2,42 @@
 
 .post-container {
     max-width: 600px;
-    margin: 30px auto;
+    margin: 40px auto; /* يوسط الصفحة من فوق وتحت ويخليها بالنص */
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* يخلي فيه مسافة ثابتة بين المربع والزر */
 }
 
-/* منطقة كتابة المنشور */
+/* تنسيق منطقة النص */
 .post-input-area {
     width: 100%;
     background-color: var(--card-dark);
-    border: 2px solid var(--border-main);
-    border-radius: 15px;
-    padding: 20px;
+    border: 1px solid var(--border-main);
+    border-radius: 12px;
+    padding: 15px;
     color: var(--text-white);
     font-family: var(--main-font);
     font-size: 1.1rem;
-    resize: none; /* يمنع المستخدم من تغيير حجم المربع يدوياً */
-    min-height: 200px;
+    min-height: 150px;
     outline: none;
-    transition: border-color 0.3s ease;
+    resize: none;
 }
 
 .post-input-area:focus {
-    border-color: var(--accent-blue); /* يتوهج عند الكتابة */
+    border-color: var(--accent-blue);
 }
 
 /* زر النشر */
 .publish-btn {
-    display: block;
     width: 100%;
     background-color: var(--accent-blue);
     color: white;
     border: none;
     padding: 15px;
-    border-radius: 12px;
+    border-radius: 10px;
     font-size: 1.1rem;
     font-weight: bold;
-    margin-top: 20px;
     cursor: pointer;
     font-family: var(--main-font);
-    transition: opacity 0.2s;
-}
-
-.publish-btn:hover {
-    opacity: 0.9;
-}
-
-.publish-btn:active {
-    transform: scale(0.98); /* تأثير ضغطة الزر */
 }
