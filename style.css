@@ -3,8 +3,10 @@
 
 /* 1. المتغيرات الموحدة */
 :root {
-    --bg-dark: #0d1117;
-    --card-dark: #161b22;
+    /* الألوان الجديدة للتدرج */
+    --bg-start: #190033;       
+    --bg-end: #000099;         
+    --card-dark: rgba(22, 27, 34, 0.8); /* جعلنا البطاقات شفافة قليلاً ليتضح التدرج خلفها */
     --border-main: #30363d;
     --text-white: #e6edf3;
     --text-gray: #8b949e;
@@ -21,7 +23,10 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    /* تطبيق التدرج اللوني */
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+    background-attachment: fixed; /* لجعل الخلفية ثابتة أثناء التمرير */
+    min-height: 100vh;
     color: var(--text-white);
     font-family: var(--main-font);
     direction: rtl;
@@ -30,7 +35,8 @@ body {
 
 /* 3. تنسيق الهيدر الموحد */
 header {
-    background-color: var(--card-dark);
+    background-color: rgba(22, 27, 34, 0.9); /* شفافية بسيطة للهيدر */
+    backdrop-filter: blur(10px); /* تأثير زجاجي (Blur) خلف الهيدر */
     padding: 15px;
     border-bottom: 1px solid var(--border-main);
     position: sticky;
@@ -63,7 +69,7 @@ header {
 }
 
 .settings-link svg {
-    width: 28px; /* حجم مريح وواضح للأيقونة */
+    width: 28px;
     height: 28px;
 }
 
