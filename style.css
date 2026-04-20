@@ -1,3 +1,6 @@
+/* استدعاء خط Cairo Play من جوجل */
+@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap');
+
 /* 1. المتغيرات الموحدة (الريموت كنترول) */
 :root {
     --bg-dark: #0d1117;        /* لون الخلفية الأساسي */
@@ -14,6 +17,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* تأكيد استخدام الخط على كل العناصر بلا استثناء */
+    font-family: var(--main-font) !important;
 }
 
 body {
@@ -21,6 +26,7 @@ body {
     color: var(--text-white);
     font-family: var(--main-font);
     direction: rtl;
+    line-height: 1.6;
 }
 
 /* 3. تنسيق الهيدر الموحد (بما أنه موجود في كل الصفحات) */
@@ -39,4 +45,37 @@ header {
     align-items: center;
     max-width: 600px;
     margin: 0 auto;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--text-white);
+}
+
+/* تنسيق زر الإعدادات (الترس) */
+.settings-link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-gray);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+.settings-link:hover {
+    color: var(--accent-blue);
+    transform: rotate(45deg);
+}
+
+/* روابط الرجوع (مثل زر إلغاء أو X) */
+.back-link {
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.back-link:hover {
+    color: var(--text-white);
 }
