@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Setting | Najd</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* إضافة تنسيق بسيط لضمان ظهور الصفحة بشكل جيد */
+        .settings-page { display: flex; flex-direction: column; gap: 15px; padding: 20px; }
+        .save-btn { padding: 10px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 8px; }
+    </style>
 </head>
 <body>
     <header>
@@ -18,9 +23,38 @@
         <input type="text" id="userName">
         <label>لونك المفضل</label>
         <input type="color" id="userColor">
-        <button onclick="saveSettings()" class="save-btn">حفظ</button>
+        <button id="mainSaveBtn" class="save-btn">حفظ</button>
     </main>
 
-    <script src="setting.js"></script>
+    <script>
+        // دمجنا كل شيء هنا عشان نقطع الشك باليقين
+        const nameInput = document.getElementById('userName');
+        const colorInput = document.getElementById('userColor');
+        const btn = document.getElementById('mainSaveBtn');
+
+        // 1. تحميل البيانات فور فتح الصفحة
+        window.addEventListener('load', () => {
+            nameInput.value = localStorage.getItem('user_name') || '';
+            colorInput.value = localStorage.getItem('user_color') || '#ffffff';
+            console.log("تم تحميل البيانات بنجاح");
+        });
+
+        // 2. دالة الحفظ
+        btn.onclick = function() {
+            const name = nameInput.value.trim();
+            const color = colorInput.value;
+
+            if (name.length < 2) {
+                alert("يرجى كتابة اسم لائق");
+                return;
+            }
+
+            localStorage.setItem('user_name', name);
+            localStorage.setItem('user_color', color);
+
+            alert("تم الحفظ بنجاح! جرب تنشر الآن");
+            window.location.href = 'index.html';
+        };
+    </script>
 </body>
 </html>
