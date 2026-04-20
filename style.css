@@ -3,10 +3,10 @@
 
 /* 1. المتغيرات الموحدة */
 :root {
-    /* الألوان الجديدة للتدرج */
-    --bg-start: #190033;       
-    --bg-end: #000099;         
-    --card-dark: rgba(22, 27, 34, 0.8); /* جعلنا البطاقات شفافة قليلاً ليتضح التدرج خلفها */
+    /* ألوان Deep Space المريحة */
+    --bg-start: #0a0c10;       
+    --bg-end: #161b22;         
+    --card-dark: #1c2128; 
     --border-main: #30363d;
     --text-white: #e6edf3;
     --text-gray: #8b949e;
@@ -23,9 +23,9 @@
 }
 
 body {
-    /* تطبيق التدرج اللوني */
-    background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
-    background-attachment: fixed; /* لجعل الخلفية ثابتة أثناء التمرير */
+    /* تطبيق التدرج الهادئ */
+    background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+    background-attachment: fixed;
     min-height: 100vh;
     color: var(--text-white);
     font-family: var(--main-font);
@@ -35,8 +35,8 @@ body {
 
 /* 3. تنسيق الهيدر الموحد */
 header {
-    background-color: rgba(22, 27, 34, 0.9); /* شفافية بسيطة للهيدر */
-    backdrop-filter: blur(10px); /* تأثير زجاجي (Blur) خلف الهيدر */
+    background-color: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(8px);
     padding: 15px;
     border-bottom: 1px solid var(--border-main);
     position: sticky;
@@ -58,7 +58,7 @@ header {
     color: var(--text-white);
 }
 
-/* تنسيق أيقونة Person Text */
+/* تنسيق أيقونة الإعدادات */
 .settings-link {
     text-decoration: none;
     color: var(--text-gray);
