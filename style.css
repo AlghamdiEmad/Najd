@@ -28,7 +28,7 @@ body {
     line-height: 1.6;
 }
 
-/* 3. تنسيق الهيدر */
+/* 3. تنسيق الهيدر الموحد */
 header {
     background-color: var(--card-dark);
     padding: 15px;
@@ -44,6 +44,8 @@ header {
     align-items: center;
     max-width: 600px;
     margin: 0 auto;
+    /* التعديل هنا: عكس اتجاه العناصر ليصبح الزر يساراً واللوجو بالوسط */
+    flex-direction: row-reverse;
 }
 
 .logo {
@@ -81,4 +83,9 @@ header {
 
 .back-link:hover {
     color: var(--text-white);
+}
+
+/* لضمان موازنة دقيقة للعناصر بعد العكس */
+.header-container > div:last-child {
+    width: 28px;
 }
