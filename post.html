@@ -13,21 +13,32 @@
         <div class="header-container">
             <a href="index.html" class="back-link">إلغاء</a>
             <div class="logo">جديد</div>
-            <button onclick="publishPost()" class="publish-btn">نشر</button>
+            <button onclick="publishPost()" style="background:none; border:none; color:var(--accent-blue); font-weight:bold; cursor:pointer; font-family: var(--main-font);">نشر</button>
         </div>
     </header>
 
-    <main>
-        <textarea id="postText" maxlength="60" placeholder="ماذا يدور في خاطرك؟"></textarea>
-        <div id="char-count">60 حرف متبقي</div>
+    <main class="post-container">
+        <textarea id="postText" class="post-input-area" maxlength="60" placeholder="ماذا يدور في خاطرك؟"></textarea>
+        
+        <div id="char-count" style="text-align: left; font-size: 0.8rem; color: var(--text-gray); margin-top: -10px;">60 حرف متبقي</div>
+        
+        <button onclick="publishPost()" class="publish-btn">نشر الآن</button>
     </main>
 
     <script src="supabase-config.js"></script>
     <script src="post.js"></script>
+    
     <script>
+        // كود عداد الحروف
         const tx = document.getElementById('postText');
+        const countDisplay = document.getElementById('char-count');
+        
         tx.addEventListener('input', () => {
-            document.getElementById('char-count').innerText = `${60 - tx.value.length} حرف متبقي`;
+            const remaining = 60 - tx.value.length;
+            countDisplay.innerText = `${remaining} حرف متبقي`;
+            
+            // تغيير لون العداد إذا قارب على الانتهاء (لمسة اختيارية)
+            countDisplay.style.color = remaining <= 10 ? "#ff4444" : "var(--text-gray)";
         });
     </script>
 </body>
