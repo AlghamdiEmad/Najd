@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const nameInput = document.getElementById('user-name-input');
-    const colorInput = document.getElementById('user-color-input');
-    const saveBtn = document.getElementById('save-settings-btn');
+    // التأكد من ربط العناصر بالـ ID الصحيح الموجود في HTML
+    const nameInput = document.getElementById('userName'); 
+    const colorInput = document.getElementById('userColor');
+    const saveBtn = document.querySelector('.save-btn');
 
-    // تحميل البيانات المحفوظة مسبقاً إن وجدت
-    nameInput.value = localStorage.getItem('najd_name') || '';
-    colorInput.value = localStorage.getItem('najd_color') || '#d4af37';
+    // 1. تحميل البيانات باستخدام المسمى الموحد user_
+    nameInput.value = localStorage.getItem('user_name') || '';
+    colorInput.value = localStorage.getItem('user_color') || '#ffffff';
 
     saveBtn.addEventListener('click', () => {
         const name = nameInput.value.trim();
@@ -16,12 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // حفظ في المتصفح
-        localStorage.setItem('najd_name', name);
-        localStorage.setItem('najd_color', color);
+        // 2. التخزين باستخدام المسمى الموحد user_ ليتعرف عليه ملف post.js
+        localStorage.setItem('user_name', name);
+        localStorage.setItem('user_color', color);
 
         alert("تم حفظ هويتك بنجاح!");
         window.location.href = 'index.html';
     });
 });
-
