@@ -1,4 +1,4 @@
-:root {
+/* :root {
     /* لوحة الألوان الجديدة - فخامة وهدوء */
     --bg-dark: #050505;
     --card-bg: #0f0f0f;
@@ -162,3 +162,184 @@ textarea::placeholder {
     .header-container { padding: 0.8rem 1rem; }
     .post-card { border-radius: 15px; padding: 1rem; }
 }
+ */
+/* استدعاء الخط مباشرة في بداية ملف الـ CSS لضمان عمله */
+@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap');
+
+:root {
+    --bg-dark: #000000;
+    --card-bg: #0a0a0a;
+    --accent: #ffffff;
+    --border: #1a1a1a;
+    --text-main: #ffffff;
+    --text-dim: #888888;
+    --font-najd: "Cairo Play", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-najd);
+    /* منع تباعد الحروف في النصوص العربية */
+    letter-spacing: 0 !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.5;
+    direction: rtl; /* لضمان انسيابية الخط العربي */
+}
+
+/* الهيدر بتصميم زجاجي ناعم */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* تصميم الشعار الجديد */
+.logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ffffff, #777777);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* التأكد من عدم وجود تباعد في الشعار */
+    letter-spacing: 0;
+}
+
+/* حاوية المنشورات */
+main {
+    max-width: 650px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+}
+
+/* كرت المنشور */
+.post-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.post-card:hover {
+    border-color: #333;
+    transform: translateY(-3px);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.user-name {
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0;
+}
+
+.post-date {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.post-content {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-main);
+    word-wrap: break-word;
+    letter-spacing: 0;
+}
+
+/* زر النشر العائم */
+.fab {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 2.5rem; /* وضعناه يسار ليناسب واجهة الـ RTL */
+    width: 65px;
+    height: 65px;
+    background: var(--accent);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 2.2rem;
+    font-weight: bold;
+    box-shadow: 0 15px 35px rgba(255,255,255,0.1);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fab:hover {
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* صفحة النشر - منطقة الكتابة */
+textarea {
+    width: 100%;
+    min-height: 250px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 500;
+    outline: none;
+    resize: none;
+    margin-top: 1rem;
+    letter-spacing: 0;
+}
+
+textarea::placeholder {
+    color: #222;
+}
+
+.publish-btn {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.publish-btn:active {
+    transform: scale(0.95);
+}
+
+#char-count {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-top: 12px;
+}
+
+/* تحسينات للجوال */
+@media (max-width: 600px) {
+    .header-container { padding: 1rem; }
+    .post-card { border-radius: 18px; padding: 1.2rem; }
+    .logo { font-size: 1.4rem; }
+}
+
