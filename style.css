@@ -44,18 +44,12 @@ header {
     align-items: center;
     max-width: 600px;
     margin: 0 auto;
-    /* التعديل هنا: عكس اتجاه العناصر ليصبح الزر يساراً واللوجو بالوسط */
-    flex-direction: row-reverse;
 }
 
-.logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--text-white);
-}
+/* تحديد ترتيب العناصر بالرقم (حتى لو ترتيبهم مختلف بالـ HTML) */
 
-/* تنسيق أيقونة Person Text */
 .settings-link {
+    order: 1; /* هذا سيجعل الأيقونة تذهب لأقصى اليسار في الـ RTL */
     text-decoration: none;
     color: var(--text-gray);
     display: flex;
@@ -64,8 +58,21 @@ header {
     cursor: pointer;
 }
 
+.logo {
+    order: 2; /* اللوجو في المنتصف */
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--text-white);
+}
+
+.header-container > div:last-child {
+    order: 3; /* الفراغ الموازن يذهب لليمين */
+    width: 28px;
+}
+
+/* تكملة التنسيق للأيقونة والروابط */
 .settings-link svg {
-    width: 28px; /* حجم مريح وواضح للأيقونة */
+    width: 28px;
     height: 28px;
 }
 
@@ -74,7 +81,6 @@ header {
     transform: scale(1.1);
 }
 
-/* روابط الرجوع */
 .back-link {
     color: var(--text-gray);
     text-decoration: none;
@@ -83,9 +89,4 @@ header {
 
 .back-link:hover {
     color: var(--text-white);
-}
-
-/* لضمان موازنة دقيقة للعناصر بعد العكس */
-.header-container > div:last-child {
-    width: 28px;
 }
