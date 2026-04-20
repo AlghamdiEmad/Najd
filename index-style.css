@@ -1,0 +1,54 @@
+/* خاص بصفحة index.html فقط */
+
+.feed-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* تنسيق بطاقة المنشور */
+.post-card {
+    background-color: var(--card-dark); /* استخدمنا المتغير من الملف الأساسي */
+    border: 1px solid var(--border-main);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.2s;
+}
+
+.post-card:hover {
+    border-color: var(--accent-blue); /* تمييز عند مرور الماوس */
+}
+
+/* تنسيق اسم المستخدم واللون */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.post-content {
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+/* زر "إضافة منشور" العائم (إذا كنت حابه تحت) */
+.fab-button {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: var(--accent-blue);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
