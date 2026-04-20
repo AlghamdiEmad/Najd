@@ -23,15 +23,6 @@
         <input type="color" id="userColor">
         <button onclick="saveSettings()" class="save-btn">حفظ</button>
     </main>
-    <script>
-        document.getElementById('userName').value = localStorage.getItem('user_name') || '';
-        document.getElementById('userColor').value = localStorage.getItem('user_color') || '#ffffff';
-        function saveSettings() {
-            localStorage.setItem('user_name', document.getElementById('userName').value);
-            localStorage.setItem('user_color', document.getElementById('userColor').value);
-            alert("تم الحفظ");
-            window.location.href = 'index.html';
-        }
-    </script>
 </body>
 </html>
+<script src="setting.js"></script>
