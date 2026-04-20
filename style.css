@@ -46,8 +46,54 @@ header {
 .logo { 
     font-size: 1.3rem; 
     font-weight: 800; 
-    letter-spacing: 0; /* تم إلغاء الـ 2px القديمة ليتناسب مع طلبك */
+    letter-spacing: 0; 
 }
+
+/* --- تنسيق الزر والأيقونة الجديد (i) --- */
+.icon-btn {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05); /* خلفية خفيفة جداً */
+    transition: 0.2s;
+}
+
+.icon-btn:active {
+    transform: scale(0.9); /* تأثير ضغط بسيط */
+}
+
+.icon-settings {
+    position: relative;
+    width: 18px;
+    height: 2px;
+    background: #fff;
+    display: block;
+}
+
+/* رسم الخطوط العلوية والسفلية للأيقونة */
+.icon-settings::before, 
+.icon-settings::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background: #fff;
+    right: 0;
+}
+
+.icon-settings::before {
+    top: -6px;
+    width: 18px;
+}
+
+.icon-settings::after {
+    bottom: -6px;
+    width: 12px; /* خط أقصر ليعطي شكلاً عصرياً */
+}
+/* -------------------------------------- */
 
 main { 
     max-width: 600px; 
@@ -73,6 +119,10 @@ main {
 
 .user-name { font-weight: bold; }
 .post-date { color: var(--muted); }
+
+.post-content {
+    font-size: 1.1rem;
+}
 
 /* 3. التأكد من أن حقل الكتابة يستخدم نفس الخط */
 textarea { 
@@ -123,4 +173,4 @@ textarea {
 }
 
 .loading, .msg { text-align: center; margin-top: 50px; color: var(--muted); }
-.icon-btn, .back-link { text-decoration: none; color: var(--text); font-size: 1.2rem; }
+.back-link { text-decoration: none; color: var(--text); font-size: 1.2rem; }
