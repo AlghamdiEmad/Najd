@@ -1,38 +1,28 @@
+// post.js
 async function publishPost() {
-    const textElement = document.getElementById('postText');
-    const text = textElement.value;
+    const text = document.getElementById('postText').value.trim();
+    if (!text) return alert("اكتب شيئاً أولاً");
+
+    const name = localStorage.getItem('user_name') || 'مستخدم نجد';
+    const color = localStorage.getItem('user_color') || '#ffffff';
     
-    const savedName = localStorage.getItem('user_name') || 'مستخدم مجهول';
-    const savedColor = localStorage.getItem('user_color') || '#ffffff';
-
-    if (!text.trim()) {
-        alert("اكتب شيئاً أولاً!");
-        return;
-    }
-
-    // توليد UUID عشوائي عشان يقبله عمود browser_id
-    const randomUUID = crypto.randomUUID();
+    // حل مشكلة UUID: نرسل كود متوافق مع نظام UUID
+    const idForBrowser = crypto.randomUUID();
 
     try {
         const { error } = await _supabase
             .from('posts')
-            .insert([
-                { 
-                    content: text, 
-                    user_name: savedName, 
-                    user_color: savedColor,
-                    browser_id: randomUUID // هنا التعديل المهم
-                }
-            ]);
+            .insert([{ 
+                content: text, 
+                user_name: name, 
+                user_color: color, 
+                browser_id: idForBrowser 
+            }]);
 
-        if (error) {
-            console.error("خطأ سوبابيس:", error);
-            alert("حدث خطأ في النشر: " + error.message);
-        } else {
-            alert("تم النشر بنجاح! 🚀");
-            window.location.href = 'index.html';
-        }
+        if (error) throw error;
+        
+        window.location.href = 'index.html';
     } catch (err) {
-        console.error("خطأ غير متوقع:", err);
+        alert("خطأ: " + err.message);
     }
 }
