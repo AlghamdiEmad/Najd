@@ -1,5 +1,6 @@
 // main.js
-const postsContainer = document.getElementById('posts-container');
+// تم التعديل ليمسك حاوية المنشورات الديناميكية فقط
+const dynamicPostsContainer = document.getElementById('dynamic-posts');
 
 async function fetchPosts() {
     try {
@@ -10,9 +11,11 @@ async function fetchPosts() {
 
         if (error) throw error;
 
-        postsContainer.innerHTML = '';
+        // نمسح فقط علامة "جاري التحميل" داخل الحاوية الديناميكية
+        dynamicPostsContainer.innerHTML = '';
+
         if (posts.length === 0) {
-            postsContainer.innerHTML = '<div class="msg">لا توجد منشورات حتى الآن.</div>';
+            dynamicPostsContainer.innerHTML = '<div class="msg">لا توجد منشورات حتى الآن.</div>';
             return;
         }
 
@@ -26,10 +29,11 @@ async function fetchPosts() {
                 </div>
                 <div class="post-content">${post.content}</div>
             `;
-            postsContainer.appendChild(card);
+            dynamicPostsContainer.appendChild(card);
         });
     } catch (err) {
-        postsContainer.innerHTML = '<div class="msg" style="color:red;">فشل الاتصال بقاعدة البيانات</div>';
+        console.error(err);
+        dynamicPostsContainer.innerHTML = '<div class="msg" style="color:red;">فشل الاتصال بقاعدة البيانات</div>';
     }
 }
 
