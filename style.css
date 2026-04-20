@@ -52,7 +52,7 @@ header {
     color: var(--text-white);
 }
 
-/* تنسيق زر الإعدادات الـ SVG */
+/* تنسيق أيقونة Person Text */
 .settings-link {
     text-decoration: none;
     color: var(--text-gray);
@@ -63,8 +63,8 @@ header {
 }
 
 .settings-link svg {
-    width: 26px; /* تحكم في حجم الأيقونة من هنا */
-    height: 26px;
+    width: 28px; /* حجم مريح وواضح للأيقونة */
+    height: 28px;
 }
 
 .settings-link:hover {
