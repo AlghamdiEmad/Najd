@@ -1,14 +1,14 @@
 /* استدعاء خط Cairo Play من جوجل */
 @import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap');
 
-/* 1. المتغيرات الموحدة (الريموت كنترول) */
+/* 1. المتغيرات الموحدة */
 :root {
-    --bg-dark: #0d1117;        /* لون الخلفية الأساسي */
-    --card-dark: #161b22;      /* لون بطاقات المنشورات */
-    --border-main: #30363d;    /* لون الحدود */
-    --text-white: #e6edf3;     /* لون الخط الأساسي */
-    --text-gray: #8b949e;      /* لون الخط الفرعي */
-    --accent-blue: #58a6ff;    /* لون الأزرار والروابط */
+    --bg-dark: #0d1117;
+    --card-dark: #161b22;
+    --border-main: #30363d;
+    --text-white: #e6edf3;
+    --text-gray: #8b949e;
+    --accent-blue: #58a6ff;
     --main-font: 'Cairo Play', sans-serif;
 }
 
@@ -17,7 +17,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* تأكيد استخدام الخط على كل العناصر بلا استثناء */
     font-family: var(--main-font) !important;
 }
 
@@ -29,7 +28,7 @@ body {
     line-height: 1.6;
 }
 
-/* 3. تنسيق الهيدر الموحد (بما أنه موجود في كل الصفحات) */
+/* 3. تنسيق الهيدر */
 header {
     background-color: var(--card-dark);
     padding: 15px;
@@ -53,23 +52,27 @@ header {
     color: var(--text-white);
 }
 
-/* تنسيق زر الإعدادات (الأيقونة الجديدة) */
+/* تنسيق زر الإعدادات الـ SVG */
 .settings-link {
     text-decoration: none;
-    font-size: 1.3rem; /* تعديل بسيط للحجم ليناسب الأيقونة */
     color: var(--text-gray);
     display: flex;
     align-items: center;
-    transition: transform 0.2s, color 0.2s; /* تم إزالة الـ rotate هنا */
+    transition: transform 0.2s, color 0.2s;
     cursor: pointer;
+}
+
+.settings-link svg {
+    width: 26px; /* تحكم في حجم الأيقونة من هنا */
+    height: 26px;
 }
 
 .settings-link:hover {
     color: var(--accent-blue);
-    transform: scale(1.1); /* تكبير بدل الدوران ليتناسب مع شكل الأيقونة */
+    transform: scale(1.1);
 }
 
-/* روابط الرجوع (مثل زر إلغاء أو X) */
+/* روابط الرجوع */
 .back-link {
     color: var(--text-gray);
     text-decoration: none;
