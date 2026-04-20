@@ -1,27 +1,27 @@
-// ... كود تهيئة Supabase هنا ...
+const supabaseUrl = 'https://qgbuvchbhbtkwcvafhek.supabase.co';
+const supabaseKey = 'EyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnYnV2Y2hiaGJ0a3djdmFmaGVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2MTI0ODksImV4cCI6MjA5MjE4ODQ4OX0.rBc4KTn0c8OhhG2dFD9ZLDHknBhhOllYsxBMzuvWeCY';
+const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-async function createPost() {
-    const content = document.getElementById('post-content').value;
-    
-    // سحب البيانات من localStorage
-    const savedName = localStorage.getItem('najd_name') || 'مستخدم مجهول';
-    const savedColor = localStorage.getItem('najd_color') || '#007bff';
+async function publishPost() {
+    const text = document.getElementById('postText').value;
+    const savedName = localStorage.getItem('user_name') || 'مستخدم مجهول';
+    const savedColor = localStorage.getItem('user_color') || '#ffffff';
 
-    if (!content) return alert("اكتب شيئاً أولاً!");
+    if (!text.trim()) {
+        alert("اكتب شيئاً أولاً!");
+        return;
+    }
 
-    const { data, error } = await _supabase
+    const { error } = await _supabase
         .from('posts')
-        .insert([
-            { 
-                content: content, 
-                user_name: savedName, 
-                user_color: savedColor 
-            }
-        ]);
+        .insert([{ 
+            content: text, 
+            user_name: savedName, 
+            user_color: savedColor 
+        }]);
 
     if (error) {
-        console.error(error);
-        alert("حدث خطأ أثناء النشر");
+        alert("فشل النشر");
     } else {
         window.location.href = 'index.html';
     }
