@@ -1,15 +1,8 @@
-// 1. تعريف العناصر (خارج أي قوس عشان الكل يشوفها)
-const nameInput = document.getElementById('userName');
-const colorInput = document.getElementById('userColor');
-
-// 2. تحميل البيانات فوراً عند فتح الملف
-if (nameInput && colorInput) {
-    nameInput.value = localStorage.getItem('user_name') || '';
-    colorInput.value = localStorage.getItem('user_color') || '#ffffff';
-}
-
-// 3. الدالة اللي يناديها الزر (لازم تكون بره بدون DOMContentLoaded)
 function saveSettings() {
+    // نجلب العناصر داخل الدالة لضمان أنها موجودة لحظة الضغط
+    const nameInput = document.getElementById('userName');
+    const colorInput = document.getElementById('userColor');
+
     const name = nameInput.value.trim();
     const color = colorInput.value;
 
@@ -18,10 +11,17 @@ function saveSettings() {
         return;
     }
 
-    // التخزين بالأسماء اللي يفهمها post.js
     localStorage.setItem('user_name', name);
     localStorage.setItem('user_color', color);
 
     alert("تم حفظ هويتك بنجاح!");
     window.location.href = 'index.html';
 }
+
+// تحميل البيانات القديمة عند فتح الصفحة
+window.onload = () => {
+    const nameInput = document.getElementById('userName');
+    const colorInput = document.getElementById('userColor');
+    if(nameInput) nameInput.value = localStorage.getItem('user_name') || '';
+    if(colorInput) colorInput.value = localStorage.getItem('user_color') || '#ffffff';
+};
