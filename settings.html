@@ -2,47 +2,33 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الإعدادات - نـجـد</title>
+    <title>الإعدادات - نجد</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="header-container">
-            <a href="index.html" style="text-decoration: none; color: white;">✕</a>
-            <div class="logo">هويتك</div>
-            <div style="width: 20px;"></div>
+            <a href="index.html" class="back-link">✕</a>
+            <div class="logo">الإعدادات</div>
+            <div class="spacer"></div>
         </div>
     </header>
-
-    <main class="settings-form">
+    <main class="settings-page">
         <label>الاسم المستعار</label>
-        <input type="text" id="user-name-input" placeholder="اكتب اسمك هنا...">
-
-        <label>لون هويتك</label>
-        <input type="color" id="user-color-input" value="#007bff">
-
-        <button id="save-settings-btn" class="post-btn">حفظ التغييرات</button>
+        <input type="text" id="userName">
+        <label>لونك المفضل</label>
+        <input type="color" id="userColor">
+        <button onclick="saveSettings()" class="save-btn">حفظ</button>
     </main>
-
     <script>
-        // تحميل الإعدادات الحالية إذا وجدت
-        document.getElementById('user-name-input').value = localStorage.getItem('najd_name') || '';
-        document.getElementById('user-color-input').value = localStorage.getItem('najd_color') || '#007bff';
-
-        document.getElementById('save-settings-btn').addEventListener('click', () => {
-            const name = document.getElementById('user-name-input').value.trim();
-            const color = document.getElementById('user-color-input').value;
-
-            if(name) {
-                localStorage.setItem('najd_name', name);
-                localStorage.setItem('najd_color', color);
-                alert('تم الحفظ بنجاح!');
-                window.location.href = 'index.html';
-            } else {
-                alert('الرجاء كتابة اسم');
-            }
-        });
+        document.getElementById('userName').value = localStorage.getItem('user_name') || '';
+        document.getElementById('userColor').value = localStorage.getItem('user_color') || '#ffffff';
+        function saveSettings() {
+            localStorage.setItem('user_name', document.getElementById('userName').value);
+            localStorage.setItem('user_color', document.getElementById('userColor').value);
+            alert("تم الحفظ");
+            window.location.href = 'index.html';
+        }
     </script>
 </body>
 </html>
