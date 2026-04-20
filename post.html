@@ -8,41 +8,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <div class="header-container">
-            <div class="logo">نـجـد</div>
+            <a href="index.html" class="back-link">إلغاء</a>
+            <div class="logo">جديد</div>
+            <button onclick="publishPost()" class="publish-btn">نشر</button>
         </div>
     </header>
 
-    <div style="margin-top: 50px; padding: 20px; max-width: 500px; margin-left: auto; margin-right: auto;">
-        <div class="post-card">
-            <h2 style="margin-bottom: 20px; font-size: 1.2rem;">اكتب ما يجول في خاطرك..</h2>
-            
-            <textarea id="postText" maxlength="60" placeholder="ماذا يحدث؟" 
-                style="width: 100%; height: 120px; background: #0a0a0a; border: 1px solid #222; border-radius: 12px; color: white; padding: 15px; font-size: 1.1rem; resize: none; outline: none;"></textarea>
-            
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-                <span id="char-count" style="color: #888; font-size: 0.9rem;">60 حرف متبقي</span>
-                <button onclick="publishPost()" id="send-btn" style="background: #fff; color: #000; border: none; padding: 10px 25px; border-radius: 30px; font-weight: bold; cursor: pointer;">نشر</button>
-            </div>
-        </div>
-        
-        <center>
-            <a href="index.html" style="color: #888; text-decoration: none; font-size: 0.9rem; margin-top: 20px; display: inline-block;">← العودة للرئيسية</a>
-        </center>
-    </div>
+    <main>
+        <textarea id="postText" maxlength="60" placeholder="ماذا يدور في خاطرك؟"></textarea>
+        <div id="char-count">60 حرف متبقي</div>
+    </main>
 
     <script src="supabase-config.js"></script>
     <script src="post.js"></script>
-
     <script>
-        // كود بسيط لتحديث عداد الحروف أثناء الكتابة
-        const textarea = document.getElementById('postText');
-        const charCount = document.getElementById('char-count');
-        textarea.addEventListener('input', () => {
-            const remaining = 60 - textarea.value.length;
-            charCount.textContent = `${remaining} حرف متبقي`;
+        const tx = document.getElementById('postText');
+        tx.addEventListener('input', () => {
+            document.getElementById('char-count').innerText = `${60 - tx.value.length} حرف متبقي`;
         });
     </script>
 </body>
