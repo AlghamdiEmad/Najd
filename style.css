@@ -15,7 +15,7 @@
     margin: 0; 
     padding: 0; 
     font-family: 'Cairo Play', sans-serif; 
-    letter-spacing: 0 !important; /* لضمان تماسك الحروف العربية */
+    letter-spacing: 0 !important; 
 }
 
 body { 
@@ -49,32 +49,27 @@ header {
     letter-spacing: 0; 
 }
 
-/* --- تنسيق الزر والأيقونة الجديد (i) --- */
+/* --- تعديل الزر لضمان ظهور الأيقونة --- */
 .icon-btn {
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05); /* خلفية خفيفة جداً */
+    width: 40px; /* مساحة الزر */
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
     transition: 0.2s;
-}
-
-.icon-btn:active {
-    transform: scale(0.9); /* تأثير ضغط بسيط */
 }
 
 .icon-settings {
     position: relative;
-    width: 18px;
-    height: 2px;
+    width: 20px; /* تحديد عرض الأيقونة */
+    height: 2px; /* الخط الأوسط */
     background: #fff;
     display: block;
 }
 
-/* رسم الخطوط العلوية والسفلية للأيقونة */
 .icon-settings::before, 
 .icon-settings::after {
     content: '';
@@ -85,13 +80,13 @@ header {
 }
 
 .icon-settings::before {
-    top: -6px;
-    width: 18px;
+    top: -7px;
+    width: 20px;
 }
 
 .icon-settings::after {
-    bottom: -6px;
-    width: 12px; /* خط أقصر ليعطي شكلاً عصرياً */
+    bottom: -7px;
+    width: 14px; /* لمسة فنية: خط أقصر */
 }
 /* -------------------------------------- */
 
@@ -120,11 +115,6 @@ main {
 .user-name { font-weight: bold; }
 .post-date { color: var(--muted); }
 
-.post-content {
-    font-size: 1.1rem;
-}
-
-/* 3. التأكد من أن حقل الكتابة يستخدم نفس الخط */
 textarea { 
     width: 100%; 
     height: 150px; 
@@ -141,7 +131,6 @@ textarea {
 
 #char-count { text-align: left; color: var(--muted); font-size: 0.8rem; margin-top: 5px; }
 
-/* 4. التأكد من أن الأزرار تستخدم نفس الخط */
 .publish-btn { 
     background: #fff; 
     color: #000; 
