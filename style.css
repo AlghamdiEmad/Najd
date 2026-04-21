@@ -1,12 +1,12 @@
 /* استدعاء خط Cairo Play من جوجل */
 @import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap');
 :root {
-    --bg-dark: #000000;          
-    --card-dark: #1a1a1a;        
-    --border-main:
-    --text-white: #e6edf3;       
-    --text-gray: #ffffff;       
-    --accent-blue: #ffff00;           
+    --bg-dark: #000000;
+    --card-dark: #1a1a1a;
+    --border-main: #333333;
+    --text-white: #e6edf3;
+    --text-gray: #ffffff;
+    --accent-blue: #8b0000;       
     --main-font: 'Cairo Play', sans-serif;
 }
 * {
