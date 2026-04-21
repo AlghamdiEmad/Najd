@@ -4,12 +4,12 @@
 /* 1. المتغيرات الموحدة */
 :root {
     /* الرمادي الغامق الموحد */
-    --bg-dark: #121212;        /* رمادي غامق جداً للخلفية */
-    --card-dark: #1e1e1e;      /* رمادي أفتح قليلاً للبطاقات */
-    --border-main: #333333;    /* لون الحدود */
+    --bg-dark: red;        /* رمادي غامق جداً للخلفية */
+    --card-dark: blue;      /* رمادي أفتح قليلاً للبطاقات */
+    --border-main: green;    /* لون الحدود */
     --text-white: #e6edf3;
-    --text-gray: #8b949e;
-    --accent-blue: #58a6ff;
+    --text-gray: gold;
+    --accent-blue: yellow;
     --main-font: 'Cairo Play', sans-serif;
 }
 
