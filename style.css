@@ -1,22 +1,14 @@
 /* استدعاء خط Cairo Play من جوجل */
 @import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap');
-    /* الرمادي الغامق الموحد */
-    /* 1. المتغيرات الموحدة - استايل الرمادي المعدني والبرتقالي الحديث */
-/* 1. المتغيرات الموحدة - استايل نجد الجديد (أحمر وبركان) */
 :root {
-    --bg-dark: #000000;           /* أسود ملكي للخلفية */
-    --card-dark: #1a1a1a;         /* رمادي غامق جداً للبطاقات والهيدر */
-    --border-main: #333333;       /* حدود رمادية متناسقة */
-    --text-white: #e6edf3;        /* أبيض هادئ للنصوص */
-    --text-gray: #ffffff;         /* نصوص ثانوية بيضاء كما طلبت */
-    
-    /* لون التمييز: الأحمر البركاني (نفس لون الزر في صورتك) */
-    --accent-blue: #ffff00;       
-    
+    --bg-dark: #000000;          
+    --card-dark: #1a1a1a;        
+    --border-main:
+    --text-white: #e6edf3;       
+    --text-gray: #ffffff;       
+    --accent-blue: #ffff00;           
     --main-font: 'Cairo Play', sans-serif;
 }
-
-/* 2. تصفير الإعدادات والقواعد العامة */
 * {
     margin: 0;
     padding: 0;
@@ -25,15 +17,13 @@
 }
 
 body {
-    background-color: var(--bg-dark); /* اللون الرمادي الغامق */
+    background-color: var(--bg-dark);
     min-height: 100vh;
     color: var(--text-white);
     font-family: var(--main-font);
     direction: rtl;
     line-height: 1.6;
 }
-
-/* 3. تنسيق الهيدر الموحد */
 header {
     background-color: var(--card-dark);
     padding: 15px;
@@ -50,14 +40,11 @@ header {
     max-width: 600px;
     margin: 0 auto;
 }
-
 .logo {
     font-weight: bold;
     font-size: 1.2rem;
     color: var(--text-white);
 }
-
-/* تنسيق أيقونة Person Text */
 .settings-link {
     text-decoration: none;
     color: var(--text-gray);
@@ -66,24 +53,19 @@ header {
     transition: transform 0.2s, color 0.2s;
     cursor: pointer;
 }
-
 .settings-link svg {
     width: 28px;
     height: 28px;
 }
-
 .settings-link:hover {
     color: var(--accent-blue);
     transform: scale(1.1);
 }
-
-/* روابط الرجوع */
 .back-link {
     color: var(--text-gray);
     text-decoration: none;
     font-size: 0.9rem;
 }
-
 .back-link:hover {
     color: var(--text-white);
 }
