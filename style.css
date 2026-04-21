@@ -3,11 +3,11 @@
 
 /* 1. المتغيرات الموحدة */
 :root {
-    /* ألوان Deep Space المريحة */
-    --bg-start: #0a0c10;       
-    --bg-end: #161b22;         
-    --card-dark: #1c2128; 
-    --border-main: #30363d;
+    /* تدرج Midnight الواضح جداً */
+    --bg-start: #000000;       
+    --bg-end: #1a1a4d;         
+    --card-dark: rgba(28, 33, 40, 0.85); /* جعلنا البطاقات شفافة قليلاً ليتضح التدرج خلفها */
+    --border-main: rgba(255, 255, 255, 0.1); /* حدود ناعمة تتناسب مع التدرج */
     --text-white: #e6edf3;
     --text-gray: #8b949e;
     --accent-blue: #58a6ff;
@@ -23,8 +23,8 @@
 }
 
 body {
-    /* تطبيق التدرج الهادئ */
-    background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+    /* تطبيق التدرج بزاوية 135 درجة ليظهر التدرج بشكل قطري واضح */
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
     background-attachment: fixed;
     min-height: 100vh;
     color: var(--text-white);
@@ -35,8 +35,8 @@ body {
 
 /* 3. تنسيق الهيدر الموحد */
 header {
-    background-color: rgba(13, 17, 23, 0.95);
-    backdrop-filter: blur(8px);
+    background-color: rgba(13, 17, 23, 0.9);
+    backdrop-filter: blur(10px); /* تأثير زجاجي فخم */
     padding: 15px;
     border-bottom: 1px solid var(--border-main);
     position: sticky;
@@ -58,7 +58,7 @@ header {
     color: var(--text-white);
 }
 
-/* تنسيق أيقونة الإعدادات */
+/* تنسيق أيقونة الإعدادات (Person Text) */
 .settings-link {
     text-decoration: none;
     color: var(--text-gray);
