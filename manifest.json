@@ -1,0 +1,16 @@
+{
+  "name": "Najd Platform",
+  "short_name": "نـجـد",
+  "description": "منصة نجد للتواصل",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#1e1e1e",
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
