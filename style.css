@@ -11,7 +11,7 @@
     --text-gray: #ffffff;         /* نصوص ثانوية بيضاء كما طلبت */
     
     /* لون التمييز: الأحمر البركاني (نفس لون الزر في صورتك) */
-    --accent-blue: #8b0000;       
+    --accent-blue: #ffff00;       
     
     --main-font: 'Cairo Play', sans-serif;
 }
