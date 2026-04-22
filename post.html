@@ -10,36 +10,34 @@
     <link rel="stylesheet" href="post-style.css">
 </head>
 <body>
-    <header>
+    <header class="main-header">
         <div class="header-container">
             <a href="index.html" class="back-link">إلغاء</a>
             <div class="logo">جديد</div>
-            <button onclick="publishPost()" style="background:none; border:none; color:var(--accent-blue); font-weight:bold; cursor:pointer; font-family: var(--main-font);">نشر</button>
+            <button onclick="publishPost()" class="header-publish-btn">نشر</button>
         </div>
     </header>
 
     <main class="post-container">
         <textarea id="postText" class="post-input-area" maxlength="60" placeholder="ماذا يدور في خاطرك؟"></textarea>
-        
-        <div id="char-count" style="text-align: left; font-size: 0.8rem; color: var(--text-gray); margin-top: -10px;">60 حرف متبقي</div>
-        
+        <div id="char-count" class="char-counter">60 حرف متبقي</div>
         <button onclick="publishPost()" class="publish-btn">نشر الآن</button>
     </main>
 
     <script src="supabase-config.js"></script>
     <script src="post.js"></script>
-    
     <script>
-        // كود عداد الحروف
         const tx = document.getElementById('postText');
         const countDisplay = document.getElementById('char-count');
         
         tx.addEventListener('input', () => {
             const remaining = 60 - tx.value.length;
             countDisplay.innerText = `${remaining} حرف متبقي`;
-            
-            // تغيير لون العداد إذا قارب على الانتهاء (لمسة اختيارية)
-            countDisplay.style.color = remaining <= 10 ? "#ff4444" : "var(--text-gray)";
+            if (remaining <= 10) {
+                countDisplay.classList.add('limit-reached');
+            } else {
+                countDisplay.classList.remove('limit-reached');
+            }
         });
     </script>
 </body>
