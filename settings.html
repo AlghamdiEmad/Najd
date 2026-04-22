@@ -2,42 +2,47 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setting | Najd</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="setting-style.css">
-
 </head>
 <body>
-    <header>
+    <header class="main-header">
         <div class="header-container">
-            <a href="index.html" class="back-link">✕</a>
+            <a href="index.html" class="back-link-icon">✕</a>
             <div class="logo">الإعدادات</div>
-            <div class="spacer"></div>
+            <div class="header-spacer"></div>
         </div>
     </header>
+
     <main class="settings-page">
-        <label>الاسم المستعار</label>
-        <input type="text" id="userName">
-        <label>لونك المفضل</label>
-        <input type="color" id="userColor">
-        <button id="mainSaveBtn" class="save-btn">حفظ</button>
+        <div class="settings-container">
+            <div class="input-group">
+                <label class="field-label">الاسم المستعار</label>
+                <input type="text" id="userName" class="main-input">
+            </div>
+
+            <div class="input-group">
+                <label class="field-label">لونك المفضل</label>
+                <input type="color" id="userColor" class="color-picker">
+            </div>
+
+            <button id="mainSaveBtn" class="save-btn">حفظ التغييرات</button>
+        </div>
     </main>
 
     <script>
-        // دمجنا كل شيء هنا عشان نقطع الشك باليقين
         const nameInput = document.getElementById('userName');
         const colorInput = document.getElementById('userColor');
         const btn = document.getElementById('mainSaveBtn');
 
-        // 1. تحميل البيانات فور فتح الصفحة
         window.addEventListener('load', () => {
             nameInput.value = localStorage.getItem('user_name') || '';
             colorInput.value = localStorage.getItem('user_color') || '#ffffff';
-            console.log("تم تحميل البيانات بنجاح");
         });
 
-        // 2. دالة الحفظ
         btn.onclick = function() {
             const name = nameInput.value.trim();
             const color = colorInput.value;
@@ -50,7 +55,7 @@
             localStorage.setItem('user_name', name);
             localStorage.setItem('user_color', color);
 
-            alert("تم الحفظ بنجاح! جرب تنشر الآن");
+            alert("تم الحفظ بنجاح!");
             window.location.href = 'index.html';
         };
     </script>
