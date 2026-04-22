@@ -1,64 +1,70 @@
-/* خاص بصفحة setting.html فقط */
-
 .settings-page {
-    max-width: 500px;
+    max-width: 600px;
     margin: 40px auto;
-    padding: 20px;
+    padding: 0 20px;
+}
+
+.settings-container {
     background-color: var(--card-dark);
     border: 1px solid var(--border-main);
-    border-radius: 20px;
+    border-radius: 12px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* تنسيق العناوين الصغيرة فوق المربعات */
-.settings-page label {
-    font-size: 0.9rem;
-    color: var(--text-gray);
-    margin-bottom: -10px; /* تقريب العنوان من المربع */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-/* تنسيق حقل الاسم */
-#userName {
+.field-label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    font-weight: bold;
+}
+
+.main-input {
+    width: 100%;
     background-color: var(--bg-dark);
     border: 1px solid var(--border-main);
+    border-radius: 8px;
     padding: 12px;
-    border-radius: 10px;
     color: var(--text-white);
-    font-family: var(--main-font);
     font-size: 1rem;
     outline: none;
 }
 
-#userName:focus {
+.main-input:focus {
     border-color: var(--accent-blue);
 }
 
-/* تنسيق حقل اللون */
-#userColor {
+.color-picker {
     width: 100%;
-    height: 50px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+    height: 45px;
     background: none;
+    border: 1px solid var(--border-main);
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-/* زر الحفظ في الإعدادات */
 .save-btn {
+    width: 100%;
     background-color: var(--accent-blue);
     color: white;
     border: none;
-    padding: 14px;
+    padding: 15px;
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    font-family: var(--main-font);
     margin-top: 10px;
 }
 
-.save-btn:hover {
-    filter: brightness(1.1);
+.back-link-icon {
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 1.2rem;
 }
