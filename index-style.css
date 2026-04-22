@@ -1,26 +1,41 @@
-/* خاص بصفحة index.html فقط */
-
 .feed-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 0 15px;
 }
 
-/* تنسيق بطاقة المنشور */
 .post-card {
-    background-color: var(--card-dark); /* استخدمنا المتغير من الملف الأساسي */
+    background-color: var(--card-dark);
     border: 1px solid var(--border-main);
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 15px;
     transition: transform 0.2s;
+    animation: slideIn 0.4s ease-out;
 }
 
 .post-card:hover {
-    border-color: var(--accent-blue); /* تمييز عند مرور الماوس */
+    border-color: var(--accent-blue);
 }
 
-/* تنسيق اسم المستخدم واللون */
+.policy-card {
+    border: 1px solid var(--accent-blue) !important;
+    margin: 2px;
+    background: rgba(139, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.policy-title {
+    color: var(--accent-blue) !important;
+}
+
+.policy-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
 .post-header {
     display: flex;
     justify-content: space-between;
@@ -34,7 +49,7 @@
     line-height: 1.6;
     word-wrap: break-word;
 }
-/* زر "إضافة منشور" العائم (إذا كنت حابه تحت) */
+
 .fab-button {
     position: fixed;
     bottom: 30px;
@@ -51,11 +66,13 @@
     color: white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
+
+.loading, .msg {
+    text-align: center;
+    padding: 20px;
+}
+
 @keyframes slideIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-.post-card {
-    animation: slideIn 0.4s ease-out;
 }
