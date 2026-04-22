@@ -1,5 +1,5 @@
-/* استدعاء خط Cairo Play من جوجل */
 @import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap');
+
 :root {
     --bg-dark: #000000;
     --card-dark: #1a1a1a;
@@ -9,6 +9,7 @@
     --accent-blue: #8b0000;       
     --main-font: 'Cairo Play', sans-serif;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -20,10 +21,10 @@ body {
     background-color: var(--bg-dark);
     min-height: 100vh;
     color: var(--text-white);
-    font-family: var(--main-font);
     direction: rtl;
     line-height: 1.6;
 }
+
 header {
     background-color: var(--card-dark);
     padding: 15px;
@@ -40,11 +41,17 @@ header {
     max-width: 600px;
     margin: 0 auto;
 }
+
 .logo {
     font-weight: bold;
     font-size: 1.2rem;
     color: var(--text-white);
 }
+
+.header-spacer {
+    width: 24px;
+}
+
 .settings-link {
     text-decoration: none;
     color: var(--text-gray);
@@ -53,19 +60,23 @@ header {
     transition: transform 0.2s, color 0.2s;
     cursor: pointer;
 }
+
 .settings-link svg {
     width: 28px;
     height: 28px;
 }
+
 .settings-link:hover {
     color: var(--accent-blue);
     transform: scale(1.1);
 }
+
 .back-link {
     color: var(--text-gray);
     text-decoration: none;
     font-size: 0.9rem;
 }
+
 .back-link:hover {
     color: var(--text-white);
 }
